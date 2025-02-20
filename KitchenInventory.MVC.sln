@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45AB630C-9036-42A7-BD79-8BF7A44DCB6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenInventory.MVC", "src\KitchenInventory.MVC\KitchenInventory.MVC.csproj", "{0D9BA137-58BB-42EA-BEF2-414680230419}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{81E09DE3-AC00-4DED-BFF0-BC3AEB46CE98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenInventory.MVC.Tests", "tests\KitchenInventory.MVC.Tests\KitchenInventory.MVC.Tests.csproj", "{AC7A9CA5-32D8-42D9-AA74-1490E581484E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KitchenInventory.MVC.IntegrationTests", "tests\KitchenInventory.MVC.IntegrationTests\KitchenInventory.MVC.IntegrationTests.csproj", "{BDCF2A95-54EC-4BE4-9AF9-5E6A34DBB1EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D9BA137-58BB-42EA-BEF2-414680230419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D9BA137-58BB-42EA-BEF2-414680230419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D9BA137-58BB-42EA-BEF2-414680230419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D9BA137-58BB-42EA-BEF2-414680230419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC7A9CA5-32D8-42D9-AA74-1490E581484E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC7A9CA5-32D8-42D9-AA74-1490E581484E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC7A9CA5-32D8-42D9-AA74-1490E581484E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC7A9CA5-32D8-42D9-AA74-1490E581484E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDCF2A95-54EC-4BE4-9AF9-5E6A34DBB1EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDCF2A95-54EC-4BE4-9AF9-5E6A34DBB1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDCF2A95-54EC-4BE4-9AF9-5E6A34DBB1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDCF2A95-54EC-4BE4-9AF9-5E6A34DBB1EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D9BA137-58BB-42EA-BEF2-414680230419} = {45AB630C-9036-42A7-BD79-8BF7A44DCB6F}
+		{AC7A9CA5-32D8-42D9-AA74-1490E581484E} = {81E09DE3-AC00-4DED-BFF0-BC3AEB46CE98}
+		{BDCF2A95-54EC-4BE4-9AF9-5E6A34DBB1EB} = {81E09DE3-AC00-4DED-BFF0-BC3AEB46CE98}
+	EndGlobalSection
+EndGlobal
