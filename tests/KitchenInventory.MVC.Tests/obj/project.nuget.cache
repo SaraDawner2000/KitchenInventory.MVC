@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WBK2ew26iJw=",
+  "dgSpecHash": "TEYcf7VHyUo=",
   "success": true,
-  "projectFilePath": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/tests/KitchenInventory.MVC.Tests/KitchenInventory.MVC.Tests.csproj",
+  "projectFilePath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.Tests/KitchenInventory.MVC.Tests.csproj",
   "expectedPackageFiles": [
     "/home/ndemy/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/ndemy/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
@@ -190,8 +190,7 @@
     "/home/ndemy/.nuget/packages/xunit.core/2.9.2/xunit.core.2.9.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/xunit.extensibility.core/2.9.2/xunit.extensibility.core.2.9.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/xunit.extensibility.execution/2.9.2/xunit.extensibility.execution.2.9.2.nupkg.sha512",
-    "/home/ndemy/.nuget/packages/xunit.runner.visualstudio/2.8.2/xunit.runner.visualstudio.2.8.2.nupkg.sha512",
-    "/home/ndemy/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.2/microsoft.aspnetcore.app.ref.9.0.2.nupkg.sha512"
+    "/home/ndemy/.nuget/packages/xunit.runner.visualstudio/2.8.2/xunit.runner.visualstudio.2.8.2.nupkg.sha512"
   ],
   "logs": []
 }

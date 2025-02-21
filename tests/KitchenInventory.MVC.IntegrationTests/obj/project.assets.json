@@ -10243,11 +10243,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/tests/KitchenInventory.MVC.IntegrationTests/KitchenInventory.MVC.IntegrationTests.csproj",
+      "projectUniqueName": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.IntegrationTests/KitchenInventory.MVC.IntegrationTests.csproj",
       "projectName": "KitchenInventory.MVC.IntegrationTests",
-      "projectPath": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/tests/KitchenInventory.MVC.IntegrationTests/KitchenInventory.MVC.IntegrationTests.csproj",
+      "projectPath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.IntegrationTests/KitchenInventory.MVC.IntegrationTests.csproj",
       "packagesPath": "/home/ndemy/.nuget/packages/",
-      "outputPath": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/tests/KitchenInventory.MVC.IntegrationTests/obj/",
+      "outputPath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.IntegrationTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ndemy/.nuget/NuGet/NuGet.Config"
@@ -10262,8 +10262,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj": {
-              "projectPath": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj"
+            "/home/ndemy/Workspace/repos/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj": {
+              "projectPath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj"
             }
           }
         }
@@ -10278,7 +10278,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -10320,18 +10320,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.2, 9.0.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

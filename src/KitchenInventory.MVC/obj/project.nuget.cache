@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fJKupKPPvCk=",
+  "dgSpecHash": "bQ1UjXV88YE=",
   "success": true,
-  "projectFilePath": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj",
+  "projectFilePath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj",
   "expectedPackageFiles": [
     "/home/ndemy/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/ndemy/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
@@ -179,8 +179,7 @@
     "/home/ndemy/.nuget/packages/system.text.json/9.0.2/system.text.json.9.0.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/home/ndemy/.nuget/packages/system.threading.tasks.dataflow/8.0.0/system.threading.tasks.dataflow.8.0.0.nupkg.sha512",
-    "/home/ndemy/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "/home/ndemy/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.2/microsoft.aspnetcore.app.ref.9.0.2.nupkg.sha512"
+    "/home/ndemy/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

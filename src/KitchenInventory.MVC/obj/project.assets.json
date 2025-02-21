@@ -8639,11 +8639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj",
+      "projectUniqueName": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj",
       "projectName": "KitchenInventory.MVC",
-      "projectPath": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj",
+      "projectPath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/src/KitchenInventory.MVC/KitchenInventory.MVC.csproj",
       "packagesPath": "/home/ndemy/.nuget/packages/",
-      "outputPath": "/home/ndemy/Workspace/dotnet_practice/AzureDevOps/KitchenInventory.MVC/src/KitchenInventory.MVC/obj/",
+      "outputPath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/src/KitchenInventory.MVC/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ndemy/.nuget/NuGet/NuGet.Config"
@@ -8670,7 +8670,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -8732,12 +8732,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.2, 9.0.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8746,7 +8740,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -33,7 +33,19 @@ public class ApplicationDbContext : IdentityDbContext
             .HasOne(i => i.Product)
             .WithMany()
             .HasForeignKey(i => i.ProductId)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.Restrict);
+
+
+        // Ensure a "DELETED" product exists
+        builder.Entity<Product>().HasData(new Product
+        {
+            Id = 1,  // Fixed ID for stability
+            Name = "DELETED"
+        });
+
+        // Prevent "DELETED" product from being removed
+        builder.Entity<Product>()
+            .HasQueryFilter(p => p.Id != 1);
     }
 
 }
