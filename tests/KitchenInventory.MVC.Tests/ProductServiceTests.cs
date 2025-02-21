@@ -9,9 +9,14 @@ public class ProductServiceTests
     private ApplicationDbContext GetDbContext()
     {
         var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-            .UseInMemoryDatabase("TestDb")
-            .Options;
-        return new ApplicationDbContext(options);
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+        .Options;
+
+        var dbContext = new ApplicationDbContext(options);
+        dbContext.Database.EnsureDeleted();
+        dbContext.Database.EnsureCreated();
+
+        return dbContext;
     }
 
     [Fact]
@@ -37,13 +42,19 @@ public class ProductServiceTests
 
         await dbContext.Products.AddRangeAsync(
             new Product { Name = "Milk", UserId = "user-123" },
-            new Product { Name = "Eggs", UserId = "user-456" }
+            new Product { Name = "Eggs", UserId = "user-456" },
+            new Product { Name = "Cream", UserId = "user-456" }
         );
         await dbContext.SaveChangesAsync();
 
         var allProducts = await service.GetProductsAsync();
 
-        Assert.Equal(3, allProducts.Count()); // "DELETED" + 2 products
+        foreach (var product in allProducts)
+        {
+            Console.WriteLine(product.Name);
+        }
+
+        Assert.Equal(3, allProducts.Count());
     }
 
     [Fact]
@@ -70,6 +81,7 @@ public class ProductServiceTests
         var dbContext = GetDbContext();
         var service = new ProductService(dbContext);
 
+
         var product = new Product { Name = "Butter", UserId = "user-123" };
         await dbContext.Products.AddAsync(product);
         await dbContext.SaveChangesAsync();
@@ -86,7 +98,7 @@ public class ProductServiceTests
         var dbContext = GetDbContext();
         var service = new ProductService(dbContext);
 
-        var product = new Product { Id = 2, Name = "Cheese", UserId = "user-123" };
+        var product = new Product { Name = "Cheese", UserId = "user-123" };
         await dbContext.Products.AddAsync(product);
 
         var inventoryItem = new InventoryItem { ProductId = product.Id, Quantity = 2, UserId = "user-123" };

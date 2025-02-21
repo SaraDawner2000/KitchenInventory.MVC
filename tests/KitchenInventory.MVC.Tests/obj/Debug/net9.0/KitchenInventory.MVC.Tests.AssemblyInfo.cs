@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KitchenInventory.MVC.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a59bf5e2128a0729e857aa3fb8b06839de34c29d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3e762110d46f108fe9b480dc8b08988909432a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("KitchenInventory.MVC.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KitchenInventory.MVC.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -703,3 +703,4 @@
 /home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.Tests/obj/Debug/net9.0/KitchenInventory.MVC.Tests.pdb
 /home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.Tests/obj/Debug/net9.0/KitchenInventory.MVC.Tests.genruntimeconfig.cache
 /home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.Tests/obj/Debug/net9.0/ref/KitchenInventory.MVC.Tests.dll
+/home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.Tests/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.InMemory.dll
