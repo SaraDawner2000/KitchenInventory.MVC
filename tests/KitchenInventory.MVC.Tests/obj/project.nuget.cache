@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TEYcf7VHyUo=",
+  "dgSpecHash": "trqV2oyBe/0=",
   "success": true,
   "projectFilePath": "/home/ndemy/Workspace/repos/KitchenInventory.MVC/tests/KitchenInventory.MVC.Tests/KitchenInventory.MVC.Tests.csproj",
   "expectedPackageFiles": [
@@ -90,6 +90,7 @@
     "/home/ndemy/.nuget/packages/microsoft.entityframeworkcore/9.0.2/microsoft.entityframeworkcore.9.0.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.2/microsoft.entityframeworkcore.abstractions.9.0.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.2/microsoft.entityframeworkcore.analyzers.9.0.2.nupkg.sha512",
+    "/home/ndemy/.nuget/packages/microsoft.entityframeworkcore.inmemory/9.0.2/microsoft.entityframeworkcore.inmemory.9.0.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/microsoft.entityframeworkcore.relational/9.0.2/microsoft.entityframeworkcore.relational.9.0.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/microsoft.entityframeworkcore.sqlite/9.0.2/microsoft.entityframeworkcore.sqlite.9.0.2.nupkg.sha512",
     "/home/ndemy/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/9.0.2/microsoft.entityframeworkcore.sqlite.core.9.0.2.nupkg.sha512",

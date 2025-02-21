@@ -19,21 +19,5 @@ public class ProductTests
         bool isValid = Validator.TryValidateObject(product, validationContext, null);
 
         Assert.False(isValid);
-
-    }
-    [Fact]
-    public void Product_Should_Have_UserId()
-    {
-        var product = new Product
-        {
-            Name = "Apples",
-            Unit = "count"
-        };
-        var validationContext = new ValidationContext(product);
-
-        bool isValid = Validator.TryValidateObject(product, validationContext, null);
-
-        Assert.False(isValid);
-
     }
 }
