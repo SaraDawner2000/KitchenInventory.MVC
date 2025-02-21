@@ -2,7 +2,6 @@ using KitchenInventory.MVC.Data;
 using KitchenInventory.MVC.Models;
 using KitchenInventory.MVC.Services;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
 public class ProductServiceTests
 {
