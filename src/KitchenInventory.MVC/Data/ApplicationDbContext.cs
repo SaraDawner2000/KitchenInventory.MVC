@@ -12,7 +12,7 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<Product> Products { get; set; }
-    public DbSet<InventoryItem> InventoryItems { get; set; }
+    public DbSet<InventoryItem> Inventory { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

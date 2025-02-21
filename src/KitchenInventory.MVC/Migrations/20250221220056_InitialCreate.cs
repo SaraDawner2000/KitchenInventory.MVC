@@ -178,7 +178,7 @@ namespace KitchenInventory.MVC.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InventoryItems",
+                name: "Inventory",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -191,15 +191,15 @@ namespace KitchenInventory.MVC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InventoryItems", x => x.Id);
+                    table.PrimaryKey("PK_Inventory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InventoryItems_AspNetUsers_UserId",
+                        name: "FK_Inventory_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InventoryItems_Products_ProductId",
+                        name: "FK_Inventory_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -251,13 +251,13 @@ namespace KitchenInventory.MVC.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InventoryItems_ProductId",
-                table: "InventoryItems",
+                name: "IX_Inventory_ProductId",
+                table: "Inventory",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InventoryItems_UserId",
-                table: "InventoryItems",
+                name: "IX_Inventory_UserId",
+                table: "Inventory",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -285,7 +285,7 @@ namespace KitchenInventory.MVC.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "InventoryItems");
+                name: "Inventory");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

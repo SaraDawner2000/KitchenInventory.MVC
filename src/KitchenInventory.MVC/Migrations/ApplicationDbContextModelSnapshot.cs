@@ -4,7 +4,6 @@ using KitchenInventory.MVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,11 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KitchenInventory.MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250221213220_InitialCreate")]
-    partial class InitialCreate
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +52,7 @@ namespace KitchenInventory.MVC.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("InventoryItems");
+                    b.ToTable("Inventory");
                 });
 
             modelBuilder.Entity("KitchenInventory.MVC.Models.Product", b =>
