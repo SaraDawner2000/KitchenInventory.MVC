@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KitchenInventory.MVC.Data;
 using KitchenInventory.MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KitchenInventory.MVC.Controllers
 {
+    [Authorize]
     public class InventoryController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,26 +28,6 @@ namespace KitchenInventory.MVC.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Inventory/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var inventoryItem = await _context.Inventory
-                .Include(i => i.Product)
-                .Include(i => i.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (inventoryItem == null)
-            {
-                return NotFound();
-            }
-
-            return View(inventoryItem);
-        }
-
         // GET: Inventory/Create
         public IActionResult Create()
         {
@@ -55,8 +37,6 @@ namespace KitchenInventory.MVC.Controllers
         }
 
         // POST: Inventory/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Quantity,ExpirationDate,AmountLeft,ProductId,UserId")] InventoryItem inventoryItem)
@@ -91,8 +71,6 @@ namespace KitchenInventory.MVC.Controllers
         }
 
         // POST: Inventory/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Quantity,ExpirationDate,AmountLeft,ProductId,UserId")] InventoryItem inventoryItem)
