@@ -57,6 +57,53 @@ public class InventoryServiceTests
     }
 
     [Fact]
+    public async Task GetInventoryItemById_Should_Return_Correct_Item()
+    {
+        var dbContext = GetDbContext();
+        var service = new InventoryService(dbContext);
+
+        var inventoryItem = new InventoryItem
+        {
+            ProductId = 2,
+            Quantity = 5,
+            ExpirationDate = DateTime.UtcNow.AddDays(10),
+            AmountLeft = AmountStatus.OneHundred,
+            UserId = "user-123"
+        };
+        await dbContext.Inventory.AddAsync(inventoryItem);
+        await dbContext.SaveChangesAsync();
+
+        var result = await service.GetInventoryItemByIdAsync(inventoryItem.Id, "user-123");
+
+        Assert.NotNull(result);
+        Assert.Equal(5, result.Quantity);
+        Assert.Equal(AmountStatus.OneHundred, result.AmountLeft);
+        Assert.Equal(inventoryItem.ExpirationDate, result.ExpirationDate);
+    }
+
+    [Fact]
+    public async Task GetInventoryItemById_Should_Return_Null_If_Not_Owned_By_User()
+    {
+        var dbContext = GetDbContext();
+        var service = new InventoryService(dbContext);
+
+        var inventoryItem = new InventoryItem
+        {
+            ProductId = 2,
+            Quantity = 5,
+            ExpirationDate = DateTime.UtcNow.AddDays(10),
+            AmountLeft = AmountStatus.OneHundred,
+            UserId = "user-123"
+        };
+        await dbContext.Inventory.AddAsync(inventoryItem);
+        await dbContext.SaveChangesAsync();
+
+        var result = await service.GetInventoryItemByIdAsync(inventoryItem.Id, "user-456"); // Different user
+
+        Assert.Null(result);
+    }
+
+    [Fact]
     public async Task UpdateInventoryItem_Should_Change_Fields()
     {
         var dbContext = GetDbContext();
@@ -102,7 +149,7 @@ public class InventoryServiceTests
         await dbContext.Inventory.AddAsync(inventoryItem);
         await dbContext.SaveChangesAsync();
 
-        await service.DeleteInventoryItemAsync(inventoryItem.Id);
+        await service.DeleteInventoryItemAsync(inventoryItem.Id, "user-123");
         var deletedItem = await dbContext.Inventory.FindAsync(inventoryItem.Id);
 
         Assert.Null(deletedItem);
