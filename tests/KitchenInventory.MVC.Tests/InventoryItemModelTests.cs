@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 public class InventoryItemTests
 {
     [Fact]
-    public void Inventory_Item_Should_ProductId()
+    public void Inventory_Item_Should_Have_ProductId()
     {
         var inventoryItem = new InventoryItem
         {

@@ -40,13 +40,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\KitchenInventory.MVC.1ge74lc1ra.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1ge74lc1ra"},{"Name":"integrity","Value":"sha256-4TxhvK/Na9wIXZz/zbhWZuRT1nl\u002BQARLqjUNMnjXZec="},{"Name":"label","Value":"_content/KitchenInventory.MVC/KitchenInventory.MVC.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00224TxhvK/Na9wIXZz/zbhWZuRT1nl\u002BQARLqjUNMnjXZec=\u0022"},{"Name":"Last-Modified","Value":"Fri, 21 Feb 2025 20:56:05 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00224TxhvK/Na9wIXZz/zbhWZuRT1nl\u002BQARLqjUNMnjXZec=\u0022"},{"Name":"Last-Modified","Value":"Tue, 25 Feb 2025 05:34:11 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/KitchenInventory.MVC/KitchenInventory.MVC.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\KitchenInventory.MVC.1ge74lc1ra.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4TxhvK/Na9wIXZz/zbhWZuRT1nl\u002BQARLqjUNMnjXZec="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00224TxhvK/Na9wIXZz/zbhWZuRT1nl\u002BQARLqjUNMnjXZec=\u0022"},{"Name":"Last-Modified","Value":"Fri, 21 Feb 2025 20:56:05 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00224TxhvK/Na9wIXZz/zbhWZuRT1nl\u002BQARLqjUNMnjXZec=\u0022"},{"Name":"Last-Modified","Value":"Tue, 25 Feb 2025 05:34:11 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/KitchenInventory.MVC/lib/bootstrap/dist/css/bootstrap-grid.bqjiyaj88i.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css'))</AssetFile>
