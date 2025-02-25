@@ -30,7 +30,7 @@ namespace KitchenInventory.MVC.Controllers
         // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create([Bind("Name,Unit")] Product product)
         {
             product.UserId = _userManager.GetUserId(User);
             if (ModelState.IsValid)
@@ -54,10 +54,9 @@ namespace KitchenInventory.MVC.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Unit")] Product product)
         {
-            var userId = _userManager.GetUserId(User);
-            if (product.UserId != userId) return Unauthorized();
+            product.UserId = _userManager.GetUserId(User);
 
             if (ModelState.IsValid)
             {
@@ -83,7 +82,7 @@ namespace KitchenInventory.MVC.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var userId = _userManager.GetUserId(User);
-            await _productService.DeleteProductAsync(id);
+            await _productService.DeleteProductAsync(id, userId);
             return RedirectToAction(nameof(Index));
         }
     }

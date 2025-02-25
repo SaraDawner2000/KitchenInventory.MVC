@@ -17,7 +17,7 @@ public class ProductService
     public async Task<List<Product>> GetProductsAsync(string? userId = null)
     {
         return await _context.Products
-            .Where(p => userId == null || p.UserId == userId) // Returns all if userId is null, otherwise filters by userId
+            .Where(p => p.Id != 1 && (userId == null || p.UserId == userId)) // Returns all if userId is null, otherwise filters by userId
             .ToListAsync();
     }
 
@@ -44,9 +44,9 @@ public class ProductService
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteProductAsync(int id)
+    public async Task DeleteProductAsync(int id, string userId)
     {
-        var product = await _context.Products.FindAsync(id);
+        var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id && p.UserId == userId);
         if (product == null || product.Id == 1) // Prevent deletion of "DELETED" product
         {
             return;

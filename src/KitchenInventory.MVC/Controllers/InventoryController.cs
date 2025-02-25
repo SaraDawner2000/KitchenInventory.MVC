@@ -1,126 +1,127 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using KitchenInventory.MVC.Data;
 using KitchenInventory.MVC.Models;
 using Microsoft.AspNetCore.Authorization;
+using KitchenInventory.MVC.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace KitchenInventory.MVC.Controllers
 {
     [Authorize]
     public class InventoryController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly InventoryService _inventoryService;
+        private readonly ProductService _productService;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public InventoryController(ApplicationDbContext context)
+        public InventoryController(InventoryService inventoryService, ProductService productService, UserManager<IdentityUser> userManager)
         {
-            _context = context;
+            _inventoryService = inventoryService;
+            _productService = productService;
+            _userManager = userManager;
         }
 
         // GET: Inventory
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Inventory.Include(i => i.Product).Include(i => i.User);
-            return View(await applicationDbContext.ToListAsync());
+            var userId = _userManager.GetUserId(User);
+            var inventoryItems = await _inventoryService.GetUserInventoryAsync(userId);
+            return View(inventoryItems);
         }
 
+
         // GET: Inventory/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            var userId = _userManager.GetUserId(User);
+            var products = await _productService.GetProductsAsync(userId);
+
+            ViewBag.Products = new SelectList(
+                products.Select(p => new { Id = p.Id, DisplayText = $"{p.Name}, {p.Unit}" }),
+                "Id",
+                "DisplayText"
+            );
+            ViewBag.AmountLeftOptions = new SelectList(Enum.GetValues(typeof(AmountStatus)));
             return View();
         }
 
         // POST: Inventory/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Quantity,ExpirationDate,AmountLeft,ProductId,UserId")] InventoryItem inventoryItem)
+        public async Task<IActionResult> Create([Bind("ProductId,Quantity,ExpirationDate,AmountLeft")] InventoryItem inventoryItem)
         {
+            var userId = _userManager.GetUserId(User);
+            inventoryItem.UserId = userId;
+
+            ModelState.Remove("UserId");
             if (ModelState.IsValid)
             {
-                _context.Add(inventoryItem);
-                await _context.SaveChangesAsync();
+                await _inventoryService.AddInventoryItemAsync(inventoryItem);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", inventoryItem.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", inventoryItem.UserId);
+
+            var products = await _productService.GetProductsAsync(userId);
+            ViewBag.Products = new SelectList(
+                products.Select(p => new { Id = p.Id, DisplayText = $"{p.Name}, {p.Unit}" }),
+                "Id",
+                "DisplayText",
+                inventoryItem.ProductId
+            );
+            ViewBag.AmountLeftOptions = new SelectList(Enum.GetValues(typeof(AmountStatus)));
             return View(inventoryItem);
         }
 
         // GET: Inventory/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var userId = _userManager.GetUserId(User);
+            var inventoryItem = await _inventoryService.GetInventoryItemByIdAsync(id, userId);
+            if (inventoryItem == null) return NotFound();
 
-            var inventoryItem = await _context.Inventory.FindAsync(id);
-            if (inventoryItem == null)
-            {
-                return NotFound();
-            }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", inventoryItem.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", inventoryItem.UserId);
+            var products = await _productService.GetProductsAsync(userId);
+            ViewBag.Products = new SelectList(
+                products.Select(p => new { Id = p.Id, DisplayText = $"{p.Name}, {p.Unit}" }),
+                "Id",
+                "DisplayText",
+                inventoryItem.ProductId
+            );
+            ViewBag.AmountLeftOptions = new SelectList(Enum.GetValues(typeof(AmountStatus)));
+
             return View(inventoryItem);
         }
 
         // POST: Inventory/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Quantity,ExpirationDate,AmountLeft,ProductId,UserId")] InventoryItem inventoryItem)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductId,Quantity,ExpirationDate,AmountLeft")] InventoryItem inventoryItem)
         {
-            if (id != inventoryItem.Id)
-            {
-                return NotFound();
-            }
+            var userId = _userManager.GetUserId(User);
+            inventoryItem.UserId = userId;
 
+            ModelState.Remove("UserId");
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(inventoryItem);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!InventoryItemExists(inventoryItem.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _inventoryService.UpdateInventoryItemAsync(inventoryItem);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", inventoryItem.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", inventoryItem.UserId);
+
+            var products = await _productService.GetProductsAsync(userId);
+            ViewBag.Products = new SelectList(
+                products.Select(p => new { Id = p.Id, DisplayText = $"{p.Name}, {p.Unit}" }),
+                "Id",
+                "DisplayText",
+                inventoryItem.ProductId
+            );
+            ViewBag.AmountLeftOptions = new SelectList(Enum.GetValues(typeof(AmountStatus)));
+
             return View(inventoryItem);
         }
 
         // GET: Inventory/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var inventoryItem = await _context.Inventory
-                .Include(i => i.Product)
-                .Include(i => i.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (inventoryItem == null)
-            {
-                return NotFound();
-            }
+            var userId = _userManager.GetUserId(User);
+            var inventoryItem = await _inventoryService.GetInventoryItemByIdAsync(id, userId);
 
             return View(inventoryItem);
         }
@@ -130,19 +131,9 @@ namespace KitchenInventory.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var inventoryItem = await _context.Inventory.FindAsync(id);
-            if (inventoryItem != null)
-            {
-                _context.Inventory.Remove(inventoryItem);
-            }
-
-            await _context.SaveChangesAsync();
+            var userId = _userManager.GetUserId(User);
+            await _inventoryService.DeleteInventoryItemAsync(id, userId);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool InventoryItemExists(int id)
-        {
-            return _context.Inventory.Any(e => e.Id == id);
         }
     }
 }

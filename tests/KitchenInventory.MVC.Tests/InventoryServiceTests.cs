@@ -98,7 +98,7 @@ public class InventoryServiceTests
         await dbContext.Inventory.AddAsync(inventoryItem);
         await dbContext.SaveChangesAsync();
 
-        var result = await service.GetInventoryItemByIdAsync(inventoryItem.Id, "user-456"); // Different user
+        var result = await service.GetInventoryItemByIdAsync(inventoryItem.Id, "user-456");
 
         Assert.Null(result);
     }

@@ -1,3 +1,4 @@
+@using System.Reflection
 @model KitchenInventory.MVC.Models.InventoryItem
 
 @{
@@ -6,13 +7,18 @@
 
 <h1>Edit</h1>
 
-<h4>InventoryItem</h4>
+<h4>Record</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label">Product</label>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.Products"></select>
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Quantity" class="control-label"></label>
                 <input asp-for="Quantity" class="form-control" />
@@ -25,18 +31,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="AmountLeft" class="control-label"></label>
-                <select asp-for="AmountLeft" class="form-control"></select>
+                <select asp-for="AmountLeft" class="form-control">
+                    @foreach (var amount in Enum.GetValues(typeof(AmountStatus)).Cast<AmountStatus>())
+                    {
+                        var displayName = amount.GetType()
+                        .GetMember(amount.ToString())
+                        .First()
+                        .GetCustomAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>()?
+                        .Name ?? amount.ToString();
+
+                        <option value="@amount">@displayName</option>
+                    }
+                </select>
                 <span asp-validation-for="AmountLeft" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductId" class="control-label"></label>
-                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
-                <span asp-validation-for="ProductId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -50,5 +57,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

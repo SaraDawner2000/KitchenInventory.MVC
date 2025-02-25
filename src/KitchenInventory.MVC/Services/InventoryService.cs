@@ -19,6 +19,7 @@ public class InventoryService
         var existingItem = await _context.Inventory.FindAsync(updatedItem.Id);
         if (existingItem == null || existingItem.UserId != updatedItem.UserId) return;
 
+        existingItem.ProductId = updatedItem.ProductId;
         existingItem.Quantity = updatedItem.Quantity;
         existingItem.ExpirationDate = updatedItem.ExpirationDate;
         existingItem.AmountLeft = updatedItem.AmountLeft;
@@ -35,6 +36,7 @@ public class InventoryService
     public async Task<InventoryItem?> GetInventoryItemByIdAsync(int id, string userId)
     {
         return await _context.Inventory
+            .Include(i => i.Product)
             .FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId);
     }
 
@@ -42,12 +44,13 @@ public class InventoryService
     {
         return await _context.Inventory
             .Where(i => i.UserId == userId)
+            .Include(i => i.Product)
             .ToListAsync();
     }
 
     public async Task DeleteInventoryItemAsync(int id, string userId)
     {
-        var inventoryItem = await _context.Inventory.FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId);
+        var inventoryItem = await _context.Inventory.Include(i => i.Product).FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId);
         if (inventoryItem == null) return;
 
         _context.Inventory.Remove(inventoryItem);

@@ -161,7 +161,7 @@ public class ProductServiceTests
         await dbContext.Products.AddAsync(product);
         await dbContext.SaveChangesAsync();
 
-        await service.DeleteProductAsync(product.Id);
+        await service.DeleteProductAsync(product.Id, product.UserId);
         var deletedProduct = await dbContext.Products.FindAsync(product.Id);
 
         Assert.Null(deletedProduct);
@@ -180,7 +180,7 @@ public class ProductServiceTests
         await dbContext.Inventory.AddAsync(inventoryItem);
         await dbContext.SaveChangesAsync();
 
-        await service.DeleteProductAsync(product.Id);
+        await service.DeleteProductAsync(product.Id, product.UserId);
         var reassignedInventory = await dbContext.Inventory.FirstOrDefaultAsync(i => i.Id == inventoryItem.Id);
 
         Assert.NotNull(reassignedInventory);

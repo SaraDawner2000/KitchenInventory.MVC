@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KitchenInventory.MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f55f10a3189ff67a62b23524834366df4bc9d0d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a0c0e429ee28d4ae74454845a026ed201304fe4")]
 [assembly: System.Reflection.AssemblyProductAttribute("KitchenInventory.MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KitchenInventory.MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
